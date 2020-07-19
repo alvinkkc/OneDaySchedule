@@ -1,0 +1,235 @@
+{
+    "UserID": "",
+    "UserName": "",
+    "Password": "",
+    "UserEmail": ""
+}
+
+{
+    "Activities": {
+        "AID": "",
+        "Title": "",
+        "StartTime": "",
+        "EndTime": "",
+        "Location": "",
+        "TitleImage": ""
+    }
+}
+
+{
+    "Schedule": {
+        "SID": "",
+        "Title": "",
+        "Date": "",
+        "TitleImage": "",
+    }
+}
+
+{
+    "UserID": "",
+    "Schedule": {
+        "SID": "",
+        "Title": "",
+        "Date": "",
+        "TitleImage": "",
+        "Activities": [
+            {
+                "AID": "",
+                "Title": "",
+                "StartTime": "",
+                "EndTime": "",
+                "Location": "",
+                "TitleImage": ""
+            },
+            {
+                "AID": "",
+                "Title": "",
+                "StartTime": "",
+                "EndTime": "",
+                "Location": "",
+                "TitleImage": ""
+            }
+        ]
+    }
+}
+nDeNcFUYdQq5S6yU
+
+<View style={styles.InputContainerL}>
+<View style={{flexDirection:'row'}}>
+  <View style={{flex:1,borderRightWidth:1,borderRightColor:"#A0A0A0"}}>
+    <Text style={styles.Latitudelabel}>Latitude</Text>
+    <TextInput
+      style={styles.Input}
+      placeholder="Place's Latitude"
+      onChangeText={latitude => setLatitude(latitude)}
+      defaultValue={22.22}
+      value={latitude}
+      clearButtonMode='while-editing'
+      textContentType="location"
+      onSubmitEditing={searchSubmit}
+      keyboardType='decimal-pad'
+      />
+  </View>
+  <View style={{flex:1}}>
+    <Text style={styles.Latitudelabel}>Longitude</Text>
+    <TextInput
+      style={styles.Input}
+      placeholder="Place's longitude"
+      onChangeText={longitude => setLongitude(longitude)}
+      defaultValue={longitude}
+      value={longitude}
+      clearButtonMode='while-editing'
+      textContentType="location"
+      onSubmitEditing={searchSubmit}
+      keyboardType='decimal-pad'
+      />
+  </View>
+</View>
+
+</View>
+
+data.map((restaurant,index) => {
+    var tempTotal =0
+    tempTotal = restaurant.numberOfAdd + restaurant.numberOfRating;
+    if(total<tempTotal)
+        
+});
+
+var rcommendR = [];
+var total = 0;
+AttractionDetail.find({type:'Restaurant'})
+    .sort({ numberOfRating: 'desc', numberOfAdd: 'desc'})
+    .then((data) => {
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('error: ', daerrorta);
+    });
+
+    <Stack.Navigator>
+    <Stack.Screen name="SchedulesPage" component={createSchedulesPageBottomTab} 
+      options={{
+        headerTitle: props =>
+          <Text style={styles.heading}>{'Schedules'}</Text>,
+        headerStyle: {
+          backgroundColor: "#FB7200",
+        },
+      }}
+    />
+
+    <Stack.Screen name="TimeTablePage" component={TimeTablePage} 
+      options={{
+        headerTitle: 'My day schedule',
+        headerTitleStyle:styles.heading,
+        headerTintColor:"white",
+        headerBackTitleVisible:false,
+        headerStyle: {
+          backgroundColor: "#FB7200",
+        },
+      }}/>
+
+    <Stack.Screen name="Profile" component={createBottomTab} />
+    <Stack.Screen name="Login" component={LoginPage} />
+
+    <Stack.Screen name="CreateAttractionPage" component={CreateAttractionPage} 
+    options={{
+      headerTitle: 'Create new attraction',
+      headerTitleStyle:styles.heading,
+      headerTintColor:"white",
+      headerBackTitleVisible:false,
+      headerStyle: {
+        backgroundColor: "#FB7200",
+      },
+    }}/>
+
+    <Stack.Screen name="ScheduleMapView" component={ScheduleMapView} 
+    options={{
+      headerTitle: 'Map View',
+      headerTitleStyle:styles.heading,
+      headerTintColor:"white",
+      headerBackTitleVisible:false,
+      headerStyle: {
+        backgroundColor: "#FB7200",
+      },
+    }}/>
+
+    <Stack.Screen name="GeneratedTimeTable" component={GeneratedTimeTable} 
+    options={{
+      headerTitle: props =>
+        <Text style={styles.heading}>{'GeneratedTimeTable'}</Text>,
+      headerStyle: {
+        backgroundColor: "#FB7200",
+      },
+    }}/>
+  </Stack.Navigator>
+
+
+
+  <View style={styles.content}>
+          
+          <View style={styles.InputContainer}>
+            <Text style={styles.label}>Name of attraction</Text>
+              <TextInput
+                style={styles.Input}
+                placeholder="Please input name of attraction"
+                onChangeText={attractionName => setAttractionName(attractionName)}
+                defaultValue={attractionName}
+                clearButtonMode='while-editing'/>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <Text style={styles.label}>Time spend</Text>
+              <TextInput
+                style={styles.Input}
+                placeholder="Please input Tiem spend"
+                onChangeText={timeSpend => setTimeSpend(timeSpend)}
+                defaultValue={timeSpend}
+                clearButtonMode='while-editing'
+                keyboardType='decimal-pad'
+                maxLength={2}/>
+          </View>
+
+          <View style={styles.InputContainer}>
+            <Text style={styles.label}>Location</Text>
+              <TextInput
+                style={styles.Input}
+                placeholder="Please input location of attraction"
+                onChangeText={location => setLocation(location)}
+                defaultValue={location}
+                clearButtonMode='while-editing'
+                textContentType="location"
+                onSubmitEditing={searchSubmit}
+                />
+          </View>
+
+          
+        </View><Marker 
+        coordinate={{
+          latitude:22.3366793,
+          longitude:114.1724234,
+        }}
+      >
+        <Image
+          source={require('../../assets/New_Project.png')}
+          style={[{width: 56, height: 70}]}
+          resizeMode="contain"/>
+      </Marker>
+
+
+
+      const getTimetable = () =>{
+        fetch(ipAddress+'/attractiondetail/recommend/', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(["View","Shopping"])
+        })
+        .then((response) => response.json())
+        .then((json) => {setData(json),console.log(json)})
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
+        setRreshing(false);
+        initStartTime.setHours('06','00','00');
+      }
